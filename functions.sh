@@ -29,7 +29,11 @@ function displayScore () {
 
 function checkAdvantage () {
   if [ $2 -gt $3 ]; then
-    echo "$1: Advantage"
+    if [ `expr $2 - $3` -gt 1 ]; then
+      echo "$1: Winner"
+    else
+      echo "$1: Advantage"
+    fi
   fi
 }
 

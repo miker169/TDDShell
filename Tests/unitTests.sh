@@ -57,5 +57,9 @@ function testItCanOutputAdvantageForSecondPlayer () {
   assertEquals 'Michael: Advantage' "`displayScore 'John' 3 'Michael' 4`"
 }
 
+function testItCanOutputWinnerForFirstPlayer () {
+  assertEquals 'John: Winner' "`displayScore 'John' 5 'Michael' 3`"
+}
+
 ### Call and Run all Tests
 . "../shunit2-2.1.6/src/shunit2"
