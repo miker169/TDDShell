@@ -8,5 +8,9 @@ function testItCanProvideFirstPlayersName () {
   assertEquals 'John' `getFirstPlayerFrom 'John - Michael'`
 }
 
+function testItCanProvideSecondPlayersName () {
+  assertEquals 'Michael' `getSecondPlayerFrom 'John - Michael'`
+}
+
 ### Call and Run all Tests
 . "../shunit2-2.1.6/src/shunit2"
