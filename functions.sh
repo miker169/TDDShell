@@ -20,16 +20,7 @@ function displayScore () {
 }
 
 function convertToTennisScore () {
-  if [ "$1" -eq '1' ]; then
-    playerOneScore='15'
-  elif [ "$1" -eq '2' ]; then
-    playerOneScore='30'
-  elif [ "$1" -eq '3' ]; then
-    playerOneScore='40'
-  else
-    playerOneScore=$1
-  fi
-
-  echo $playerOneScore;
+  declare -a scoreMap=('0' '15' '30' '40')
+  echo ${scoreMap[$1]};
 }
 
