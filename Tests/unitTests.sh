@@ -45,5 +45,9 @@ function testItCanOutputScoreWhenSecondPlayerWinsFirst3Points() {
   assertEquals 'John: 0 - Michael: 40' "`displayScore 'John' 0 'Michael' 3`"
 }
 
+function testItSayDeuceWhenPlayersAreEqualAndHaveEnoughPoints() {
+  assertEquals 'Deuce' "`displayScore 'John' 3 'Michael' 3`"
+}
+
 ### Call and Run all Tests
 . "../shunit2-2.1.6/src/shunit2"
