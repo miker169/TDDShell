@@ -16,10 +16,37 @@ function getScoreFor () {
 }
 
 function displayScore () {
-  if [ $2 -gt 2 ] && [ $4 -gt 2 ] && [ $2 -eq $4 ]; then
-    echo "Deuce"
+  firstPlayerName=$1; firstPlayerScore=$2
+  secondPlayerName=$3; secondPlayerScore=$4
+  if outOfRegularScore $firstPlayerScore $secondPlayerScore; then
+    checkEquality $firstPlayerScore $secondPlayerScore
+    checkAdvantage $firstPlayerName $firstPlayerScore $secondPlayerScore
+    checkAdvantage $secondPlayerName $secondPlayerScore $firstPlayerScore
   else
     echo "$1: `convertToTennisScore $2` - $3: `convertToTennisScore $4`"
+  fi
+}
+
+function checkAdvantage () {
+  if [ $2 -gt $3 ]; then
+    echo "$1: Advantage"
+  fi
+}
+
+function outOfRegularScore () {
+  [ $1 -gt 2 ] && [ $2 -gt 2 ]
+  return $?
+}
+
+function checkEquality () {
+  if [ $1 -eq $2 ]; then
+    echo "Deuce"
+  fi
+}
+
+function checkFirstPlayerAdv () {
+  if [ $2 -gt $3 ]; then
+    echo "$1: Advantage"
   fi
 }
 

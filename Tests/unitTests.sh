@@ -49,5 +49,13 @@ function testItSayDeuceWhenPlayersAreEqualAndHaveEnoughPoints() {
   assertEquals 'Deuce' "`displayScore 'John' 3 'Michael' 3`"
 }
 
+function testItCanOutputAdvantageForFirstPlayer () {
+  assertEquals 'John: Advantage' "`displayScore 'John' 4 'Michael' 3`"
+}
+
+function testItCanOutputAdvantageForSecondPlayer () {
+  assertEquals 'Michael: Advantage' "`displayScore 'John' 3 'Michael' 4`"
+}
+
 ### Call and Run all Tests
 . "../shunit2-2.1.6/src/shunit2"
