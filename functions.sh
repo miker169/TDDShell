@@ -16,7 +16,11 @@ function getScoreFor () {
 }
 
 function displayScore () {
-  echo "$1: `convertToTennisScore $2` - $3: `convertToTennisScore $4`"
+  if [ $2 -gt 2 ] && [ $4 -gt 2 ] && [ $2 -eq $4 ]; then
+    echo "Deuce"
+  else
+    echo "$1: `convertToTennisScore $2` - $3: `convertToTennisScore $4`"
+  fi
 }
 
 function convertToTennisScore () {
